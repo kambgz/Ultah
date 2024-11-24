@@ -76,25 +76,87 @@
         audio {
             display: none;
         }
+
+        /* Popup styling */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s;
+        }
+
+        .popup-content {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content h2 {
+            font-size: 1.5em;
+            color: #5a5abf;
+        }
+
+        .popup-content p {
+            font-size: 1.1em;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .popup .visible {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Selamat Ulang Tahun!</h1>
-        <p>Barakallah fii umrik! Semoga Allah selalu memberimu umur yang berkah, kesehatan, kebahagiaan, dan kemudahan dalam segala urusan.</p>
-        <p>Nikmati hari spesialmu dengan penuh rasa syukur, Fathin Hamamah!</p>
+        <p>Barakallah fii umrik, Fathin Hamamah! Semoga Allah memberimu kebahagiaan, kesehatan, dan keberkahan di setiap langkah hidupmu.</p>
         <div class="photo-frame">
             <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
         </div>
-        <button onclick="playMusic()">🎵 Putar Musik</button>
-        <audio id="birthdaySong" src="ultah.mp3"></audio>
+        <button id="openPopup">Buka</button>
+        <audio id="birthdaySong" src="ultah.mp3" loop></audio>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Ucapan Spesial</h2>
+            <p>Hari ini adalah hari spesialmu. Semoga setiap detik hidupmu dipenuhi cinta, kebahagiaan, dan keberkahan. Nikmati hari indah ini dengan rasa syukur yang mendalam.</p>
+            <button id="closePopup">Buka</button>
+        </div>
     </div>
 
     <script>
-        function playMusic() {
-            const music = document.getElementById('birthdaySong');
+        const popup = document.getElementById('popup');
+        const openPopup = document.getElementById('openPopup');
+        const closePopup = document.getElementById('closePopup');
+        const music = document.getElementById('birthdaySong');
+
+        // Show popup
+        openPopup.addEventListener('click', () => {
+            popup.style.visibility = 'visible';
+            popup.style.opacity = '1';
+        });
+
+        // Close popup and play music
+        closePopup.addEventListener('click', () => {
+            popup.style.visibility = 'hidden';
+            popup.style.opacity = '0';
             music.play();
-        }
+        });
     </script>
 </body>
 </html>
