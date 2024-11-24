@@ -1,10 +1,14 @@
-function playMusic() {
-  const music = document.getElementById('birthday-music');
-  if (music.paused) {
+const music = document.getElementById('birthday-music');
+
+// Fungsi untuk memuat audio lokal
+function loadLocalAudio(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const fileURL = URL.createObjectURL(file);
+    music.src = fileURL;
     music.play();
-    alert('Musik dimulai, Selamat menikmati 🎉');
+    alert('Audio lokal berhasil dimuat dan diputar!');
   } else {
-    music.pause();
-    alert('Musik dihentikan');
+    alert('Gagal memuat audio. Silakan pilih file lagi.');
   }
 }
