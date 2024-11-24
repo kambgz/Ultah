@@ -3,29 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Selamat Ulang Tahun Fathin Hamamah</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2d89e5;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #2d89e5;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #1e69c4;
+        }
+
+        audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <!-- Popup Selamat Ulang Tahun -->
-    <div id="popup">
-        <div class="popup-content">
-            <h1>Selamat Ulang Tahun!</h1>
-            <button id="open-button">Buka</button>
-        </div>
+    <div class="container">
+        <h1>Selamat Ulang Tahun, Fathin Hamamah!</h1>
+        <p>Barakallah fii umrik, Fathin Hamamah. Semoga Allah SWT senantiasa melimpahkan rahmat, keberkahan, dan kebahagiaan dalam hidupmu.</p>
+        <p>Semoga semua doa baikmu dikabulkan, umurmu penuh keberkahan, dan langkahmu selalu diridhoi Allah SWT. Aamiin.</p>
+        <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
+        <button onclick="playMusic()">Putar Musik</button>
+        <audio id="music" src="ultah.mp3"></audio>
     </div>
 
-    <!-- Halaman Utama -->
-    <div id="main-content" class="hidden">
-        <div class="main-container">
-            <img src="Screenshot_20241014-175748.jpg" alt="Foto" class="profile-pic">
-            <h1>Selamat Ulang Tahun!</h1>
-            <p>Semoga di hari yang istimewa ini, Allah SWT melimpahkan rahmat, berkah, dan kebahagiaan dalam hidupmu. Aamiin.</p>
-        </div>
-    </div>
-
-    <audio id="background-music" src="ultah.mp3"></audio>
-
-    <script src="script.js"></script>
+    <script>
+        function playMusic() {
+            const music = document.getElementById('music');
+            music.play();
+        }
+    </script>
 </body>
 </html>
