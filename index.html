@@ -88,8 +88,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            visibility: hidden;
-            opacity: 0;
+            visibility: visible;
+            opacity: 1;
             transition: visibility 0s, opacity 0.3s;
         }
 
@@ -127,7 +127,6 @@
         <div class="photo-frame">
             <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
         </div>
-        <button id="openPopup">Buka</button>
         <audio id="birthdaySong" src="ultah.mp3" loop></audio>
     </div>
 
@@ -141,15 +140,8 @@
 
     <script>
         const popup = document.getElementById('popup');
-        const openPopup = document.getElementById('openPopup');
         const closePopup = document.getElementById('closePopup');
         const music = document.getElementById('birthdaySong');
-
-        // Show popup
-        openPopup.addEventListener('click', () => {
-            popup.style.visibility = 'visible';
-            popup.style.opacity = '1';
-        });
 
         // Close popup and play music
         closePopup.addEventListener('click', () => {
