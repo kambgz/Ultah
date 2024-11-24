@@ -122,14 +122,14 @@
             opacity: 1;
         }
 
-        /* Balloon Animation */
+        /* Balloon Animation inside container */
         @keyframes balloon {
             0% {
                 transform: translateY(100px) rotate(45deg);
                 opacity: 0;
             }
             100% {
-                transform: translateY(-500px) rotate(720deg);
+                transform: translateY(-200px) rotate(720deg);
                 opacity: 1;
             }
         }
@@ -178,22 +178,6 @@
     </style>
 </head>
 <body>
-    <div class="balloon">
-        <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 1">
-    </div>
-    <div class="balloon">
-        <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 2">
-    </div>
-    <div class="balloon">
-        <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 3">
-    </div>
-    <div class="balloon">
-        <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 4">
-    </div>
-    <div class="balloon">
-        <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 5">
-    </div>
-
     <div class="container">
         <h1>Selamat Ulang Tahun!</h1>
         <p>Barakallah fii umrik, Fathin Hamamah! Semoga Allah memberimu kebahagiaan, kesehatan, dan keberkahan di setiap langkah hidupmu.</p>
@@ -201,6 +185,23 @@
             <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
         </div>
         <audio id="birthdaySong" src="ultah.mp3" loop></audio>
+
+        <!-- Balloons inside container -->
+        <div class="balloon">
+            <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 1">
+        </div>
+        <div class="balloon">
+            <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 2">
+        </div>
+        <div class="balloon">
+            <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 3">
+        </div>
+        <div class="balloon">
+            <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 4">
+        </div>
+        <div class="balloon">
+            <img src="https://img.icons8.com/ios/452/balloon.png" alt="Balloon 5">
+        </div>
     </div>
 
     <div class="popup" id="popup">
@@ -216,7 +217,13 @@
         const closePopup = document.getElementById('closePopup');
         const music = document.getElementById('birthdaySong');
 
-        // Close popup and play music
+        // Tampilkan pop-up saat halaman dimuat
+        window.onload = function() {
+            popup.style.visibility = 'visible';
+            popup.style.opacity = '1';
+        };
+
+        // Tutup pop-up dan mulai musik saat tombol diklik
         closePopup.addEventListener('click', () => {
             popup.style.visibility = 'hidden';
             popup.style.opacity = '0';
