@@ -9,7 +9,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            background: linear-gradient(to bottom, #f9f9f9, #e8edf3);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,39 +19,46 @@
 
         .container {
             text-align: center;
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
         }
 
         h1 {
-            font-size: 2.5em;
-            color: #ff6f61;
+            font-size: 2em;
+            color: #5a5abf;
             margin-bottom: 15px;
-            animation: fadeIn 2s ease-in-out;
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             line-height: 1.6;
             color: #555;
             margin: 15px 0;
-            animation: slideIn 1.5s ease-in-out;
         }
 
-        img {
-            max-width: 100%;
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            border: 5px solid #5a5abf;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame img {
+            width: 100%;
             height: auto;
-            border-radius: 15px;
-            margin: 20px 0;
-            animation: popIn 1s ease-in-out;
         }
 
         button {
-            background-color: #ff6f61;
+            background-color: #5a5abf;
             color: #fff;
             border: none;
             padding: 12px 25px;
@@ -63,53 +70,23 @@
         }
 
         button:hover {
-            background-color: #e55b4e;
+            background-color: #4949a6;
         }
 
         audio {
             display: none;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes popIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Selamat Ulang Tahun!</h1>
-        <p>Barakallah fii umrik! Semoga hidupmu selalu diberkahi, dipenuhi kebahagiaan, dan impian-impianmu tercapai.</p>
-        <p>Hari ini adalah hari spesialmu, Fathin Hamamah. Rayakan dengan penuh syukur dan cinta!</p>
-        <img src="Screenshot_20241014-175748.jpg" alt="Ucapan Ulang Tahun">
-        <button onclick="playMusic()">🎉 Putar Musik</button>
+        <p>Barakallah fii umrik! Semoga Allah selalu memberimu umur yang berkah, kesehatan, kebahagiaan, dan kemudahan dalam segala urusan.</p>
+        <p>Nikmati hari spesialmu dengan penuh rasa syukur, Fathin Hamamah!</p>
+        <div class="photo-frame">
+            <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
+        </div>
+        <button onclick="playMusic()">🎵 Putar Musik</button>
         <audio id="birthdaySong" src="ultah.mp3"></audio>
     </div>
 
