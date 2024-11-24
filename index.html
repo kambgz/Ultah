@@ -13,16 +13,13 @@
       <div class="balloon blue"></div>
       <div class="balloon green"></div>
     </div>
-    <!-- Foto di atas ucapan -->
     <img src="Screenshot_20241014-175748.jpg" alt="Foto Ulang Tahun" class="birthday-photo">
-    <h1>Happy Birthday, [Fathin Hamamah Bagis]!</h1>
+    <h1>Happy Birthday, [Fathin]!</h1>
     <p>Semoga panjang umur, sehat selalu, dan bahagia!</p>
-    <label for="audio-upload">Pilih Audio Lokal:</label>
-    <input type="file" id="audio-upload" accept="audio/*" onchange="loadLocalAudio(event)">
+    <button onclick="playMusic()">Putar Musik 🎵</button>
   </div>
 
-  <!-- Musik default -->
-  <audio id="birthday-music" src="ultah.mp3" loop autoplay></audio>
+  <audio id="birthday-music" src="ultah.mp3" loop></audio>
 
   <script src="script.js"></script>
 </body>
