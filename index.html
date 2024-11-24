@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ucapan Ulang Tahun</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        /* Reset CSS */
+        body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
             background: linear-gradient(to right, #f8d7ff, #ffb3d9); /* Soft pastel gradient */
             display: flex;
             justify-content: center;
@@ -55,29 +61,33 @@
             }
         }
 
+        /* Balon berada di posisi kiri atas */
         .top-left {
             left: 10%;
             animation: floatBalloon 10s infinite linear;
         }
 
+        /* Balon berada di posisi kanan atas */
         .top-right {
             right: 10%;
             animation: floatBalloon 12s infinite linear;
         }
 
+        /* Balon berada di posisi kiri bawah */
         .bottom-left {
             left: 10%;
             bottom: -10%;
             animation: floatBalloon 8s infinite linear;
         }
 
+        /* Balon berada di posisi kanan bawah */
         .bottom-right {
             right: 10%;
             bottom: -10%;
             animation: floatBalloon 8s infinite linear;
         }
 
-        /* Balon dipindahkan ke kanan bawah */
+        /* Balon di kanan bawah */
         .right-bottom {
             right: 10%;
             bottom: 0;
@@ -99,6 +109,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -201,6 +212,53 @@
             opacity: 1;
         }
 
+        /* Responsiveness: For mobile screens */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .photo-frame {
+                width: 120px;
+                height: 120px;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+
+        /* Responsive for very small screens (portrait mobile) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .photo-frame {
+                width: 100px;
+                height: 100px;
+            }
+
+            button {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -209,7 +267,7 @@
         <div class="balloon top-left">
             <img src="balloon1.png" alt="Balloon 1">
         </div>
-  
+
         </div>
         <div class="balloon bottom-left">
             <img src="balloon3.png" alt="Balloon 3">
@@ -226,7 +284,6 @@
     <div class="container" id="birthdayContainer">
         <h1>Selamat Ulang Tahun!</h1>
         <p>Barakallah fii umrik, Fathin Hamamah! Semoga Allah memberimu kebahagiaan, kesehatan, dan keberkahan di setiap langkah hidupmu.</p>
-
         <div class="photo-frame">
             <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
         </div>
