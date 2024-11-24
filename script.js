@@ -1,14 +1,10 @@
-const music = document.getElementById('birthday-music');
-
-// Fungsi untuk memuat audio lokal
-function loadLocalAudio(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const fileURL = URL.createObjectURL(file);
-    music.src = fileURL;
+function playMusic() {
+  const music = document.getElementById('birthday-music');
+  if (music.paused) {
     music.play();
-    alert('Audio lokal berhasil dimuat dan diputar!');
+    alert('Musik dimulai, Selamat menikmati 🎉');
   } else {
-    alert('Gagal memuat audio. Silakan pilih file lagi.');
+    music.pause();
+    alert('Musik dihentikan');
   }
 }
