@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -59,6 +60,40 @@
                 bottom: 100%;
                 transform: translateX(var(--x-shift)); /* Variasi pergerakan horizontal */
             }
+        }
+
+        /* Balon berada di posisi kiri atas */
+        .top-left {
+            left: 10%;
+            animation: floatBalloon 10s infinite linear;
+        }
+
+        /* Balon berada di posisi kanan atas */
+        .top-right {
+            right: 10%;
+            animation: floatBalloon 12s infinite linear;
+        }
+
+        /* Balon berada di posisi kiri bawah */
+        .bottom-left {
+            left: 10%;
+            bottom: -10%;
+            animation: floatBalloon 8s infinite linear;
+        }
+
+        /* Balon berada di posisi kanan bawah */
+        .bottom-right {
+            right: 10%;
+            bottom: -10%;
+            animation: floatBalloon 8s infinite linear;
+        }
+
+        /* Balon di kanan bawah */
+        .right-bottom {
+            right: 10%;
+            bottom: 0;
+            transform: translateX(0);
+            animation: floatBalloon 10s infinite linear;
         }
 
         /* Kontainer utama yang berisi foto dan teks */
@@ -145,14 +180,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9); /* Gelapkan latar belakang lebih gelap */
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 999;
-            visibility: hidden; /* Sembunyikan popup secara default */
-            opacity: 0; /* Sembunyikan popup secara default */
-            transition: visibility 0s, opacity 0.5s linear; /* Transisi untuk efek fade */
         }
 
         .popup-content {
@@ -176,9 +208,9 @@
             margin: 15px 0;
         }
 
-        .popup.visible {
-            visibility: visible; /* Tampilkan popup */
-            opacity: 1; /* Tampilkan popup */
+        .popup .visible {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* Responsiveness: For mobile screens */
@@ -228,20 +260,6 @@
             }
         }
 
-        /* Styling untuk timer hitung mundur */
-        #countdown {
-            background-color: #ffffff; /* Latar belakang putih */
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px; /* Jarak antara timer dan form */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff6f91; /* Warna teks timer */
-        }
     </style>
 </head>
 <body>
@@ -249,6 +267,8 @@
     <div class="balloons">
         <div class="balloon top-left">
             <img src="balloon1.png" alt="Balloon 1">
+        </div>
+
         </div>
         <div class="balloon bottom-left">
             <img src="balloon3.png" alt="Balloon 3">
@@ -264,24 +284,7 @@
     <!-- Kotak tempat foto dan ucapan selamat ultah -->
     <div class="container" id="birthdayContainer">
         <h1>Selamat Ulang Tahun!</h1>
-        <p>Hati-hati, sebentar lagi saya ultah! Jaga kesehatan kalian.  
-        Ke Sesaot bertemu tobrut,  
-        Masuk hutan mencari rawa.  
-        Kosongkan dompet, kosongkan perut,  
-        Hari ini aku traktir semua!</p>
-        <p>Tentukan tujuan kalian kawan! 🎈</p>
-
-        <!-- Timer Hitung Mundur -->
-        <div id="countdown">
-            <h2>Timer Hitung Mundur</h2>
-            <div id="timer">
-                <span id="days">0</span> hari 
-                <span id="hours">0</span> jam 
-                <span id="minutes">0</span> menit 
-                <span id="seconds">0</span> detik
-            </div>
-        </div>
-
+        <p>Barakallah fii umrik, Fathin Hamamah! Semoga Allah memberimu kebahagiaan, kesehatan, dan keberkahan di setiap langkah hidupmu.</p>
         <div class="photo-frame">
             <img src="Screenshot_20241014-175748.jpg" alt="Foto Fathin Hamamah">
         </div>
@@ -289,7 +292,6 @@
 
         <form id="birthdayForm">
             <input type="text" id="userName" placeholder="Masukkan Nama" required>
-            <input type="text" id="destination" placeholder="Tentukan Tujuan" required>
             <button type="submit">Kirim Ucapan</button>
         </form>
     </div>
@@ -298,79 +300,34 @@
     <div class="popup" id="popup">
         <div class="popup-content">
             <h2>Ucapan Spesial</h2>
-            <p>Sebentar lagi hari spesialku! Semoga kalian semua diberi kebahagiaan, kesehatan, dan keberkahan. Jangan lupa siapkan kue ya! 🎂</p>
+            <p>Hari ini adalah hari spesialmu, Fathin! Semoga Allah memberimu kebahagiaan, kesehatan, dan keberkahan di setiap langkah hidupmu. Barakallah fii umrik!</p>
             <button id="closePopup">Buka</button>
         </div>
     </div>
 
     <script>
-        // Timer Hitung Mundur
-        const countdownDate = new Date("December 31, 2024 23:59:59").getTime();
-
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timer").innerHTML = "WAKTU HABIS";
-            }
-        }, 1000);
-
         document.getElementById('birthdayForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
             const userName = document.getElementById('userName').value;
-            const destination = document.getElementById('destination').value;
-
-            // Pesan acak
-            const randomMessages = [
-                "Usia mu semakin bertambah, semakin tua dirimu kawan.",
-                "Semakin dekat pula ajal mu, banyak-banyak bersedekah agar jadi amal jariah kelak jika kamu mati.",
-                "Hidup ini singkat, manfaatkan waktu untuk berbuat baik.",
-                "Semoga setiap langkahmu membawa berkah dan kebahagiaan.",
-                "Jangan lupa untuk selalu bersyukur atas setiap detik yang diberikan."
-            ];
-
-            // Memilih pesan acak
-            const randomMessage = randomMessages[Math.floor(Math.random() * randomMessages.length)];
 
             // Pesan yang akan dikirimkan ke WhatsApp
-            const message = `Assalamualaikum Fathin, Selamat Ulang Tahun! 🎉 ${randomMessage} Dari: ${userName}, Tujuan: ${destination}`;
+            const message = `Assalamualaikum Fathin, Selamat Ulang Tahun! 🎉 Barakallah fii umrik, semoga Allah selalu memberimu kebahagiaan dan kesehatan. Amin! 💖`;
 
             // Membuka WhatsApp dengan pesan yang sudah disertakan
-            const phoneNumber = "6287846812535"; // Nomor WhatsApp tujuan tanpa tanda +
-            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            const phoneNumber = "+6287846812535"; // Nomor WhatsApp tujuan
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message + '\n\nDari: ' + userName)}`;
             
             window.open(whatsappLink, '_blank'); // Mengarahkan ke WhatsApp
         });
 
-        // Menampilkan popup ketika tombol "Buka" ditekan
+        // Menutup popup ketika tombol "Buka" ditekan dan memutar musik
         document.getElementById('closePopup').addEventListener('click', function() {
             document.getElementById('popup').style.display = 'none';
             // Menambahkan musik setelah popup ditutup
             const music = document.getElementById('birthdaySong');
             music.play();
         });
-
-        // Menampilkan popup
-        function showPopup() {
-            const popup = document.getElementById('popup');
-            popup.classList.add('visible');
-        }
-
-        // Panggil fungsi untuk menampilkan popup saat halaman dimuat
-        window.onload = showPopup;
     </script>
 </body>
 </html>
